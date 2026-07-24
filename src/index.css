@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-brand-orange text-white;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-10;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-orange px-7 py-3.5
+      font-semibold text-white shadow-soft transition-all duration-300
+      hover:-translate-y-0.5 hover:bg-brand-orangeDark active:translate-y-0;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-orange/20
+      bg-white px-7 py-3.5 font-semibold text-brand-orange transition-all duration-300
+      hover:border-brand-orange hover:-translate-y-0.5;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-orangeSoft px-4 py-1.5
+      text-sm font-semibold text-brand-orange;
+  }
+  .section-title {
+    @apply text-3xl font-bold leading-tight text-ink sm:text-4xl lg:text-[2.75rem];
+  }
+}
+
+/* Reveal-on-scroll helper toggled by an IntersectionObserver in useReveal(). */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grain {
+  background-image: radial-gradient(
+    rgba(232, 82, 33, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}

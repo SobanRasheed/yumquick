@@ -1,0 +1,23 @@
+{
+  "food": {
+    "avatar.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876414/yumfast/food/wmzbysvjkw6f1t83uffn.jpg",
+    "avatar_person.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876415/yumfast/food/lgptqt2kxnzumzjo6cmg.jpg",
+    "berry_cupcake.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876416/yumfast/food/kmyy2czkpdhu7fg95dmm.jpg",
+    "broccoli_lasagna.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876417/yumfast/food/cbvw7dadd3jr8ihswnvq.jpg",
+    "chicken_burger.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876418/yumfast/food/odgbgequqtptcgslnt6a.jpg",
+    "chicken_curry.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876419/yumfast/food/p9vghna4gsdmsykcaos8.jpg",
+    "cupcake.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876420/yumfast/food/w2in4pzdxfyig3bhxwjs.jpg",
+    "pizza_pepperoni.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876421/yumfast/food/cybkfvetkqgk9pxgbb0w.jpg",
+    "spring_rolls.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876422/yumfast/food/x9fq3v0sozehvnaeuson.jpg",
+    "strawberry_shake.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876423/yumfast/food/bd86hrmj6ojzy5vjdgqz.jpg",
+    "sushi.jpg": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876424/yumfast/food/j2k6fzf1isbyfvfyaehi.jpg"
+  },
+  "screens": {
+    "cart.png": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784878373/yumfast/screens/c0n8f0fjyiymlfww3enr.png",
+    "home.png": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876428/yumfast/screens/tbgckte0ojaz97ny3bbs.png",
+    "payment.png": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876430/yumfast/screens/etl05kswwof75bmsm4wc.png",
+    "profile.png": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876430/yumfast/screens/ok1r8em4hrh8bahgitdm.png",
+    "review.png": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876432/yumfast/screens/jjb9xwuqeqjs613xcnt5.png",
+    "tracking.png": "https://res.cloudinary.com/ui7ywkah/image/upload/v1784876432/yumfast/screens/uagopawzpsphalnluwo7.png"
+  }
+}
