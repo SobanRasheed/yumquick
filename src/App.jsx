@@ -35,6 +35,68 @@ function Reveal({ children, className = '', delay = 0 }) {
   )
 }
 
+/* ─── CSS Phone Mockup ─── */
+function PhoneMockup({ src, alt }) {
+  return (
+    <div className="relative w-full">
+      {/* Outer shell — fixed px radius so corners are circular, not elliptical */}
+      <div
+        className="relative"
+        style={{
+          background: 'linear-gradient(160deg, #6B6B6D 0%, #2A2A2C 40%, #1C1C1E 100%)',
+          boxShadow:
+            '0 50px 100px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.4)',
+          borderRadius: '44px',
+          padding: '8px',
+        }}
+      >
+        {/* Screen bezel */}
+        <div
+          className="relative overflow-hidden bg-black"
+          style={{ aspectRatio: '9 / 19.5', borderRadius: '38px' }}
+        >
+          {/* App screenshot */}
+          <img
+            src={src}
+            alt={alt}
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
+          {/* Dynamic island */}
+          <div
+            className="absolute top-[2.5%] left-1/2 -translate-x-1/2 bg-black rounded-full z-10"
+            style={{ width: '32%', height: '3.5%' }}
+          />
+          {/* Home indicator */}
+          <div
+            className="absolute bottom-[1.5%] left-1/2 -translate-x-1/2 bg-white/40 rounded-full z-10"
+            style={{ width: '36%', height: '0.6%', minHeight: '3px' }}
+          />
+        </div>
+      </div>
+      {/* Power button */}
+      <div
+        className="absolute bg-[#3A3A3C] rounded-r"
+        style={{ top: '28%', right: '-4px', width: '4px', height: '11%' }}
+      />
+      {/* Silent switch */}
+      <div
+        className="absolute bg-[#3A3A3C] rounded-l"
+        style={{ top: '18%', left: '-4px', width: '4px', height: '5%' }}
+      />
+      {/* Volume up */}
+      <div
+        className="absolute bg-[#3A3A3C] rounded-l"
+        style={{ top: '27%', left: '-4px', width: '4px', height: '9%' }}
+      />
+      {/* Volume down */}
+      <div
+        className="absolute bg-[#3A3A3C] rounded-l"
+        style={{ top: '38%', left: '-4px', width: '4px', height: '9%' }}
+      />
+    </div>
+  )
+}
+
 /* ─── Counter animation hook ─── */
 function useCounter(target, duration = 2000) {
   const [count, setCount] = useState(0)
@@ -164,19 +226,27 @@ function Navbar() {
     <nav
       id="navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-brand-orange/5 py-3'
-          : 'bg-transparent py-5'
+        ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-brand-orange/5 py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <div className="container-x flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group" id="logo">
-          <div className="w-10 h-10 rounded-xl bg-brand-orange flex items-center justify-center shadow-soft transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-            <span className="text-white font-display font-bold text-lg">Z</span>
+        <a href="#" className="flex items-center gap-1 group -mt-2" id="logo">
+          {/* Brand icon — 1.png */}
+          <div className="w-20 h-20 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+            <img
+              src="/Yum Qucik/1.png"
+              alt="YumQuick icon"
+              className="w-full h-full object-contain mix-blend-multiply"
+            />
           </div>
-          <span className="font-display font-bold text-xl text-ink">
-            Yum Fast
-          </span>
+          {/* Brand wordmark — 2.png */}
+          <img
+            src="/Yum Qucik/2.png"
+            alt="YumQuick"
+            className="h-14 w-auto object-contain mix-blend-multiply"
+          />
         </a>
 
         {/* Desktop links */}
@@ -248,16 +318,16 @@ function Hero() {
       <div className="absolute -bottom-20 -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-brand-amber/10 to-brand-orangeSoft/20 blur-3xl" />
 
       <div className="container-x relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-6 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left copy */}
-          <div className="max-w-xl">
+          <div className="lg:col-span-7 xl:col-span-7">
             <div className="animate-fade-up">
               <span className="eyebrow">
                 #1 Food Delivery App
               </span>
             </div>
 
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold leading-[1.1] text-ink animate-fade-up" style={{ animationDelay: '100ms' }}>
+            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-display font-extrabold leading-[1.1] text-ink animate-fade-up" style={{ animationDelay: '100ms' }}>
               Your favorite meals,{' '}
               <span className="relative inline-block">
                 <span className="relative z-10 text-brand-orange">delivered fast</span>
@@ -265,7 +335,7 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="mt-6 text-lg text-muted leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
+            <p className="mt-6 text-lg text-muted leading-relaxed animate-fade-up max-w-lg" style={{ animationDelay: '200ms' }}>
               Live order tracking, thousands of restaurants, and a checkout
               that just works. Craving something? Yum Fast gets it to your door
               in minutes.
@@ -313,38 +383,34 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right phone mockup */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="relative animate-float">
-              {/* Phone frame */}
-              <div className="relative w-[280px] sm:w-[300px] rounded-[2.5rem] overflow-hidden shadow-phone border-[6px] border-ink/10 bg-ink">
-                <img
-                  src="https://res.cloudinary.com/ui7ywkah/image/upload/v1784876428/yumfast/screens/tbgckte0ojaz97ny3bbs.png"
-                  alt="Yum Fast app home screen"
-                  className="w-full"
-                />
-              </div>
-              {/* Floating food cards */}
-              <div className="absolute -left-16 top-16 bg-white rounded-2xl p-3 shadow-card animate-float-slow flex items-center gap-3 pr-5">
-                <div className="w-12 h-12 rounded-xl overflow-hidden">
+          {/* Right phone mockup — fills the 5-col right panel */}
+          <div className="relative flex justify-center lg:col-span-5 xl:col-span-5 items-center mt-8 lg:mt-0">
+            <div className="relative animate-float w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[300px]">
+              <PhoneMockup
+                src="https://res.cloudinary.com/ui7ywkah/image/upload/v1784876428/yumfast/screens/tbgckte0ojaz97ny3bbs.png"
+                alt="Yum Fast app home screen"
+              />
+              {/* Floating food cards — hidden on mobile to prevent overflow */}
+              <div className="hidden sm:flex absolute -left-16 top-14 bg-white rounded-2xl p-2.5 shadow-card animate-float-slow items-center gap-3 pr-4">
+                <div className="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
                   <img src="https://res.cloudinary.com/ui7ywkah/image/upload/v1784876418/yumfast/food/odgbgequqtptcgslnt6a.jpg" alt="Burger" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-ink">Chicken Burger</p>
+                  <p className="text-xs font-semibold text-ink leading-tight">Chicken Burger</p>
                   <p className="text-xs text-brand-orange font-bold">Rs. 899</p>
                 </div>
               </div>
-              <div className="absolute -right-12 bottom-32 bg-white rounded-2xl p-3 shadow-card animate-float-slow flex items-center gap-3 pr-5" style={{ animationDelay: '2s' }}>
-                <div className="w-12 h-12 rounded-xl overflow-hidden">
+              <div className="hidden sm:flex absolute -right-16 bottom-28 bg-white rounded-2xl p-2.5 shadow-card animate-float-slow items-center gap-3 pr-4" style={{ animationDelay: '2s' }}>
+                <div className="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0">
                   <img src="https://res.cloudinary.com/ui7ywkah/image/upload/v1784876421/yumfast/food/cybkfvetkqgk9pxgbb0w.jpg" alt="Pizza" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-ink">Pepperoni Pizza</p>
+                  <p className="text-xs font-semibold text-ink leading-tight">Pepperoni Pizza</p>
                   <p className="text-xs text-brand-orange font-bold">Rs. 1,299</p>
                 </div>
               </div>
-              {/* Delivery time badge */}
-              <div className="absolute -right-8 top-8 bg-brand-orange text-white rounded-full px-4 py-2 shadow-soft flex items-center gap-2 text-sm font-semibold animate-float-slow" style={{ animationDelay: '1s' }}>
+              {/* Delivery time badge — hidden on mobile */}
+              <div className="hidden sm:flex absolute -right-10 top-8 bg-brand-orange text-white rounded-full px-3 py-1.5 shadow-soft items-center gap-1.5 text-xs font-semibold animate-float-slow" style={{ animationDelay: '1s' }}>
                 25 min
               </div>
             </div>
@@ -543,13 +609,12 @@ function HowItWorks() {
 
                 {/* Phone */}
                 <div className={`flex justify-center ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-brand-amber/20 rounded-[3rem] blur-2xl scale-95" />
-                    <div className="relative w-[240px] sm:w-[260px] rounded-[2.2rem] overflow-hidden shadow-phone border-[5px] border-ink/10 bg-ink">
-                      <img
+                  <div className="relative w-full max-w-[240px] lg:max-w-[260px]">
+                    <div className="absolute -inset-6 bg-gradient-to-br from-brand-orange/20 to-brand-amber/20 rounded-[3rem] blur-2xl" />
+                    <div className="relative">
+                      <PhoneMockup
                         src={s.screen}
                         alt={`Step ${s.num}: ${s.title}`}
-                        className="w-full"
                       />
                     </div>
                   </div>
@@ -577,17 +642,16 @@ function AppShowcase() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Phone */}
           <Reveal className="flex justify-center">
-            <div className="relative">
+            <div className="relative w-full max-w-[300px] lg:max-w-[340px] mx-auto">
               <div className="absolute -inset-8 bg-gradient-to-br from-brand-orange/30 to-brand-amber/20 rounded-full blur-3xl" />
-              <div className="relative w-[280px] sm:w-[300px] rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] border-white/10">
-                <img
+              <div className="relative">
+                <PhoneMockup
                   src="https://res.cloudinary.com/ui7ywkah/image/upload/v1784876432/yumfast/screens/jjb9xwuqeqjs613xcnt5.png"
                   alt="Yum Fast app review screen"
-                  className="w-full"
                 />
               </div>
               {/* Floating review card */}
-              <div className="absolute -right-12 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/10 max-w-[180px]">
+              <div className="absolute -right-14 top-1/2 -translate-y-1/2 bg-black/40 backdrop-blur-xl rounded-2xl p-4 border border-white/10 max-w-[180px]">
                 <div className="flex gap-1 text-brand-amber">
                   {[...Array(5)].map((_, i) => <span key={i}>{icons.star}</span>)}
                 </div>
@@ -684,8 +748,8 @@ function MenuPreview() {
               key={f}
               onClick={() => setActiveFilter(f)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeFilter === f
-                  ? 'bg-brand-orange text-white shadow-soft'
-                  : 'bg-white text-muted hover:text-ink border border-ink/10 hover:border-brand-orange/30'
+                ? 'bg-brand-orange text-white shadow-soft'
+                : 'bg-white text-muted hover:text-ink border border-ink/10 hover:border-brand-orange/30'
                 }`}
             >
               {f}
@@ -693,8 +757,8 @@ function MenuPreview() {
           ))}
         </Reveal>
 
-        {/* Grid */}
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Grid: 1 col mobile → 2 tablet → 3 laptop → 4 desktop */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {menuItems
             .filter((m) => activeFilter === 'All' || m.tag === activeFilter)
             .map((item, i) => (
