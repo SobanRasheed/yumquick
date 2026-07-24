@@ -500,7 +500,7 @@ const features = [
 
 function Features() {
   return (
-    <section id="features" className="py-20 lg:py-28 relative">
+    <section id="features" className="py-20 lg:py-28 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-brand-orangeSoft/30 to-transparent blur-3xl opacity-50" />
       <div className="container-x relative z-10">
         <Reveal className="text-center max-w-2xl mx-auto">
@@ -728,7 +728,7 @@ function MenuPreview() {
   const filters = ['All', 'Popular', 'New', 'Healthy', 'Sweet']
 
   return (
-    <section id="menu" className="py-20 lg:py-28 relative">
+    <section id="menu" className="py-20 lg:py-28 relative overflow-hidden">
       <div className="container-x">
         <Reveal className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Explore</span>
